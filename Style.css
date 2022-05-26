@@ -42,7 +42,6 @@ body {
 .introtext {
   color: var(--black);
   font-size: 9rem;
-  font-family: "papyrus", fantasy;
   padding: 0 4rem;
   text-align: center;
   background-color: var(--lg);
