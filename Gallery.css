@@ -27,6 +27,7 @@ html{
 body {
   background: url(HaleFull.webp) repeat-x fixed center;
   margin: 0;
+  font-family: Renogare-Regular;
 }
 
 .center {
