@@ -1,0 +1,239 @@
+:root{
+  --white: hsl(0, 0%, 100%);
+  --dg: hsl(0, 0%, 13%);
+  --lg: hsl(0, 0%, 25%);
+  --red: hsl(12, 67%, 59%);
+  --black: hsl(0, 0%, 0%);
+  --salt: hsl(0, 3%, 49%);
+}
+
+html{
+  font-size: 62.5%;
+  font-family: Renogare-Regular;
+}
+
+@media only screen and (max-width: 600px){
+  html{
+    font-size: 40%;
+  }
+}
+
+@font-face {
+  font-family: Renogare-Regular;
+  src: url("Renogare-Regular.otf");
+}
+
+/*Background*/
+body {
+  background: url(HaleFull.webp) repeat-x fixed center;
+  margin: 0;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.head-container{
+  width: max-content;
+  overflow: hidden;
+}
+
+.rainbow{
+  font-size: 100px;
+  text-align: center;
+  margin-top: 6rem;
+  font-family: fantasy;
+  color: transparent;
+  background: linear-gradient(to right, #6666ff, #0099ff, #00ff00, #ff3355, #6666ff);
+  background-size: 600px ;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 2px var(--dg);
+  animation: rainbowtext 4s linear infinite;
+}
+
+@keyframes rainbowtext{
+  0%{
+  }
+  100%{
+    background-position: 600px 0;
+  }
+}
+
+.ani-under{
+  background-color: var(--lg);
+  width: 10px;
+  height: 10px;
+  margin-top: 0rem;
+  animation: underline-ani 1.8s linear infinite;
+}
+
+@keyframes underline-ani{
+  0%{}
+  10%{width: 5%; margin-left: 12.5%;}
+  20%{width: 15%; margin-left: 25%;}
+  30%{width: 30%; margin-left: 37.5%;}
+  40%{width: 40%; margin-left: 50%;}
+  50%{width: 30%; margin-left: 62.5%;}
+  60%{width: 20%; margin-left: 75%;}
+  70%{width: 15%; margin-left: 82.5%;}
+  80%{width: 5%; margin-left: 95%;}
+  90%{width: 0%; margin-left: 100%;}
+  99%{width: 0; margin-left: 0;}
+  100%{width: 1%;}
+}
+
+/*GALLERY*/
+.whole{
+  margin: 1em 3em;
+}
+
+.colums{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6em;
+  align-items: center;
+}
+
+@media only screen and (min-width: 1700px){
+  .colums{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6em;
+  }
+}
+
+@media only screen and (max-width: 1700px){
+  .colums{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+  }
+}
+
+@media only screen and (max-width: 1100px){
+  .colums{
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1em;
+  }
+}
+
+.card{
+  background-color: var(--dg);
+  border: 5px solid var(--black);
+  box-shadow: 0 0 12px .1px var(--black);
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  gap: .5em;
+}
+
+.text{
+  font-family: Renogare-Regular;
+  color: var(--white);
+  margin: 0;
+  float: right;
+  font-size: 2em;
+  padding: .2em 0;
+  border: 2px solid var(--red);
+  text-align: center;
+  flex-grow: 1;
+}
+
+.img{
+  float: left;
+  border: 2px solid var(--red);
+}
+
+/*Nav*/
+ul {
+  list-style-type: none;
+  background-color: var(--lg);
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--lg);
+  position: fixed;
+  overflow: hidden;
+  display: flex;
+  border-radius: 0 0 3rem 3rem;
+  justify-content: center;
+}
+
+ul > *{
+  cursor: pointer;
+}
+
+li{
+  display: inline-block;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 700px){
+  li:not(.nav){
+    flex-grow: 1;
+  }
+}
+
+li:nth-child(2){
+  border-left: .2rem solid var(--white) ;
+}
+
+li a:not(.nav) {
+  display: block;
+  color: var(--white);
+  text-align: center;
+  padding: .95rem 1.3rem;
+  text-decoration: none;
+  text-shadow: .3rem .3rem .3rem var(--black);
+  font-size: 2.7rem;
+  border-right: .2rem solid var(--white);
+}
+
+@media only screen and (max-width: 600px){
+  .nav{
+    zoom: .8;
+  }
+}
+
+/*Color*/
+li a.normalhover {
+  transition: background-color ease-in-out 1s;
+}
+
+li a.normalhover:hover {
+  background-color: var(--dg);
+}
+/*Active*/
+li a.active {
+  text-decoration-color: var(--black);
+  background-color: var(--red);
+  text-decoration-line: underline;
+  color: var(--black);
+  transition: text-shadow linear .8s;
+  text-shadow: var(--black) .3rem .2rem 8rem;
+}
+
+li a.active:hover {
+  text-shadow: var(--white) .3rem .2rem 4rem;
+}
+
+/*Hale Part*/
+li a.nav {
+  margin: .3rem 1.2rem;
+}
+
+.nav:hover {
+  animation: HaleRotate 2s linear infinite both;
+}
+
+@keyframes HaleRotate {
+  100%{
+    transform: rotate(360deg);
+  }
+}
+/* Nav */

@@ -1,0 +1,239 @@
+:root{
+  --white: hsl(0, 0%, 100%);
+  --dg: hsl(0, 0%, 13%);
+  --lg: hsl(0, 0%, 25%);
+  --red: hsl(12, 67%, 59%);
+  --black: hsl(0, 0%, 0%);
+  --salt: hsl(0, 3%, 49%);
+}
+
+html{
+  font-size: 62.5%;
+  font-family: Renogare-Regular;
+}
+
+@media only screen and (max-width: 600px){
+  html{
+    font-size: 40%;
+  }
+}
+
+@font-face {
+  font-family: Renogare-Regular;
+  src: url("Renogare-Regular.otf");
+}
+
+/*Background*/
+body {
+  background: url(HaleFull.webp) repeat-x fixed center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.header-container{
+  display: flex;
+  margin-top: 9rem !important;
+  background-color: var(--salt);
+  box-shadow: 0 0 10px 8px hsl(84, 76%, 25%);
+  text-align: center;
+  width: max-content;
+  overflow: hidden;
+  justify-content: start;
+  height: 10rem;
+}
+
+h1{
+  color: var(--black);
+  font-size: 3.5rem;
+  padding: 0 1rem;
+  margin-left: -0.5rem;
+}
+
+.green-line{
+  animation: green-line-ani 1s ease-out forwards normal;
+  background-color: greenyellow;
+  width: 4px;
+  margin-left: 0.5rem;
+}
+
+@keyframes green-line-ani{
+  0%{
+    height: 1px;
+  }
+  100%{
+    height: 80%;
+  }
+}
+
+p{
+  text-align: center;
+  margin: auto;
+  margin-top: 2rem;
+  background-color: var(--salt);
+  font-size: 2rem;
+  opacity: 0;
+  width: max-content;
+  box-shadow: 0 0 10px 3px hsl(84, 76%, 25%);
+  padding: 2rem 4rem;
+}
+
+.fade-ani{
+  animation: fade-ani 1s ease forwards normal;
+}
+
+@keyframes fade-ani{
+  0%{}
+  75%{opacity: 100%;}
+  100%{
+    opacity: 100%;
+    transform: translateY(-1rem);
+  }
+}
+
+.download-container{
+  display: grid;
+  margin-top: auto;
+  width: max-content;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border: .02rem solid var(--black);
+  border-radius: 10rem;
+  background-color: var(--red);
+  transition: filter 1s ease-in-out, box-shadow .75s ease-in-out, transform 1s ease-in-out, background-color 1s ease-in-out;
+}
+
+.download-container:hover{
+  filter: brightness(115%);
+  box-shadow: 0 0 2px 2px var(--black);
+  transform: translateY(-.5rem);
+  background-color: hsl(12, 71%, 59%);
+}
+
+.box-div{
+  background-color: var(--black);
+  opacity: 0;
+  margin-top: -2rem;
+  background-size: .2rem .2rem;
+  height: 2px;
+  width: 0px;
+  transition: width 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity .5s cubic-bezier(1,-0.01, 0.58, 1);
+  text-align: center;
+}
+
+.download-container:hover .box-div{
+  width: 100%;
+  opacity: 100%;
+}
+
+.button-text{
+  font-size: 3rem;
+  color: var(--dg);
+  padding: 2rem 2rem;
+  -webkit-text-stroke: .03rem var(--white);
+  transition: color 1s ease-in-out;
+  text-decoration: none;
+}
+
+.download-container:hover .button-text{
+  color: var(--black);
+}
+
+/*Nav*/
+ul {
+  list-style-type: none;
+  background-color: var(--lg);
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--lg);
+  position: fixed;
+  overflow: hidden;
+  display: flex;
+  border-radius: 0 0 3rem 3rem;
+  justify-content: center;
+}
+
+ul > *{
+  cursor: pointer;
+}
+
+li{
+  display: inline-block;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 700px){
+  li:not(.nav){
+    flex-grow: 1;
+  }
+}
+
+li:nth-child(2){
+  border-left: .2rem solid var(--white) ;
+}
+
+li a:not(.nav) {
+  display: block;
+  color: var(--white);
+  text-align: center;
+  padding: .95rem 1.3rem;
+  text-decoration: none;
+  text-shadow: .3rem .3rem .3rem var(--black);
+  font-size: 2.7rem;
+  border-right: .2rem solid var(--white);
+}
+
+@media only screen and (max-width: 600px){
+  .nav{
+    zoom: .8;
+  }
+}
+
+/*Color*/
+li a.normalhover {
+  transition: background-color ease-in-out 1s;
+}
+
+li a.normalhover:hover {
+  background-color: var(--dg);
+}
+/*Active*/
+li a.active {
+  text-decoration-color: var(--black);
+  background-color: var(--red);
+  text-decoration-line: underline;
+  color: var(--black);
+  transition: text-shadow linear .8s;
+  text-shadow: var(--black) .3rem .2rem 8rem;
+}
+
+li a.active:hover {
+  text-shadow: var(--white) .3rem .2rem 4rem;
+}
+
+/*Hale Part*/
+li a.nav {
+  margin: .3rem 1.2rem;
+}
+
+.nav:hover {
+  animation: HaleRotate 2s linear infinite both;
+}
+
+@keyframes HaleRotate {
+  100%{
+    transform: rotate(360deg);
+  }
+}
+/* Nav */
