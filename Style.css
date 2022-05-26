@@ -48,6 +48,7 @@ body {
   width: auto;
   margin-top: 7rem;
   box-shadow: 0 0 10px 2px var(--black);
+  font-family: Renogare-Regular;
 }
 
 .subtitle-home {
